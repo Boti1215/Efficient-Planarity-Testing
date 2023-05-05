@@ -3,6 +3,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
 public class Main {
+
+
+    ////hahahahahahahahahahahaha
     public static String readFile(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line = br.readLine(); String result = "";
