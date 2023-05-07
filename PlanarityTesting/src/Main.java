@@ -15,7 +15,10 @@ public class Main {
 //______________________________________________________ENTRY___________________________________________________________
         String input_0 = "";
 
-        try{ input_0 = readFile("matrix.txt");}
+        try{
+            //input_0 = readFile("matrix.txt");
+            input_0 = readFile("matrix1.txt");
+        }
         catch (IOException e) {System.err.println("ERROR! WRONG INPUT!"); e.printStackTrace();}
 
         System.out.println("\nINPUT: \n" + input_0);
@@ -801,7 +804,7 @@ public class Main {
             }
             System.out.print("-lábai:\nL1: ");
             for (int m = 0; m < G_Gact.getHidakszama(); m++) {
-                for (int i = 0; i < G_Gact.getHidakhossza()[m]; i++)System.out.print(G_Gact.getHidlabak()[m][i] + " ");
+                for (int i = 0; i < G_Gact.getHidlabakhossza()[m]; i++)System.out.print(G_Gact.getHidlabak()[m][i] + " ");
                 if(m < G_Gact.getHidakszama()-1)System.out.print("\nL"+(m+2)+": ");
                 else System.out.println();
             }
