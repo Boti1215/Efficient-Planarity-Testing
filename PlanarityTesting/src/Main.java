@@ -17,7 +17,8 @@ public class Main {
 
         try{
             //input_0 = readFile("matrix.txt");
-            input_0 = readFile("matrix1.txt");
+            //input_0 = readFile("matrix1.txt");
+            input_0 = readFile("matrix2.txt");
         }
         catch (IOException e) {System.err.println("ERROR! WRONG INPUT!"); e.printStackTrace();}
 
@@ -51,20 +52,20 @@ public class Main {
         if(E > 3*V-3) { System.out.println("Nem síkgráf, mert E > 3*V-3"); System.out.println(); return; }
 //______________________________________________EDGE_NUMBER_CONDITION___________________________________________________
 
-        int[][] rajz = new int[V][V];
+        // int[][] rajz = new int[V][V];
         int[][] elek = new int[V][V];
 
 //______________________________________________FINDING_CYCLE_IN_G1_____________________________________________________
         System.out.println(); System.out.println("G1:\n");
 
-        for(int i= 0; i < sorok.length; i++) G.getValue()[i] = 0;
-        int v = rand.nextInt(sorok.length); G.setK(0); int[] c; G.getCycle()[0] = v+1;
+        for(int i= 0; i < V; i++) G.getValue()[i] = 0;
+        int v = rand.nextInt(V); G.setK(0); int[] c; G.getCycle()[0] = v+1;
 
         c = G.find_cycle(v, 0);
 
-        int[] igazi = new int[sorok.length+1]; int vege = 0; int j = 0; int meret = 0;
+        int[] igazi = new int[V+1]; int vege = 0; int j = 0; int meret = 0;
 
-        for(int i = sorok.length; i >= 0 ; i--){
+        for(int i = V; i >= 0 ; i--){
             if(c[i]!=0 && vege == 0) {
                 vege = c[i];
                 igazi[0] = vege; meret++;
@@ -114,8 +115,8 @@ public class Main {
 
         for(int l=0; l< legigazibb.length; l++) {
             for(int q=0; q< legigazibb.length; q++) {
-                if(input[legigazibb[l]-1][legigazibb[q]-1] == 1 &&
-                        rajz[legigazibb[l]-1][legigazibb[q]-1] == 0
+                if(input[legigazibb[l]-1][legigazibb[q]-1] == 1
+                        // && rajz[legigazibb[l]-1][legigazibb[q]-1] == 0
                         && elek[legigazibb[l]-1][legigazibb[q]-1] == 0) {
                     if(l ==0) {
                         if(legigazibb[l+1] != legigazibb[q] && legigazibb[legigazibb.length-1] != legigazibb[q]) {
@@ -195,7 +196,7 @@ public class Main {
         for(int i = 0; i < incidenceG1.length; i++) {
             for(int l = 0; l < incidenceG1.length; l++)  {
                 // System.out.print(incidenceG1[l][i] + " ");
-                if(incidenceG1[i][l] == 1)rajz[i][l] = 1;
+                // if(incidenceG1[i][l] == 1)rajz[i][l] = 1;
             }
             // System.out.println();
         }
@@ -472,7 +473,7 @@ public class Main {
             if(i < tel_path-1) {
                 elek[path[i]-1][path[i+1]-1] = 1;
                 elek[path[i+1]-1][path[i]-1] = 1;
-                rajz[path[i]-1][path[i+1]-1] = 1;
+                // rajz[path[i]-1][path[i+1]-1] = 1;
             }
             System.out.print(path[i] + " ");
         }
@@ -835,7 +836,7 @@ public class Main {
                 for(int l=0; l<tel_tartomanyok[i]; l++) {
                     for(int q=0; q<tel_tartomanyok[i]; q++) {
                         if(input[tartomanyok[i][l]-1][tartomanyok[i][q]-1] == 1 &&
-                                rajz[tartomanyok[i][l]-1][tartomanyok[i][q]-1] == 0  &&
+                                // rajz[tartomanyok[i][l]-1][tartomanyok[i][q]-1] == 0  &&
                                 elek[tartomanyok[i][l]-1][tartomanyok[i][q]-1] == 0) {
                             if(l ==0) {
                                 if(tartomanyok[i][l+1] != tartomanyok[i][q] && tartomanyok[i][tel_tartomanyok[i]-1] != tartomanyok[i][q]) {
@@ -1067,7 +1068,7 @@ public class Main {
                 if(i < tel_path-1) {
                     elek[path[i]-1][path[i+1]-1] = 1;
                     elek[path[i+1]-1][path[i]-1] = 1;
-                    rajz[path[i]-1][path[i+1]-1] = 1;
+                    // rajz[path[i]-1][path[i+1]-1] = 1;
                 }
                 System.out.print(path[i] + " ");
             }
