@@ -232,7 +232,7 @@ public class Main {
         Graph G_G1 = new Graph(hidalapanyag);
         G_G1.find_components(lehet_hidelem);
 
-        System.out.print("-hídpontjai(lábak nélkül):\nB1: ");
+        System.out.print("-hídpontjai(csatlakozási pontok nélkül):\nB1: ");
         for(int i= 0; i< G_G1.getHidakszama(); i++) {
             for(int l = 0; l < G_G1.getHidakhossza()[i]; l++) { System.out.print(G_G1.getHidak()[i][l] + " "); }
             if(i < G_G1.getHidakszama()-1)System.out.print("\nB"+(i+2)+": ");
@@ -281,7 +281,7 @@ public class Main {
                 }
             }
         }
-        System.out.print("-lábai:\nL1: ");
+        System.out.print("-csatlakozási pontjai:\nL1: ");
         for (int m = 0; m < G_G1.getHidakszama(); m++) {
             for (int i = 0; i < G_G1.getHidlabakhossza()[m]; i++)System.out.print(G_G1.getHidlabak()[m][i] + " ");
             if(m < G_G1.getHidakszama()-1)System.out.print("\nL"+(m+2)+": ");
@@ -755,7 +755,7 @@ public class Main {
             Graph G_Gact = new Graph(hidalapanyag);
             G_Gact.find_components(lehet_hidelem);
 
-            System.out.print("-hídpontjai(lábak nélkül):\nB1: ");
+            System.out.print("-hídpontjai(csatlakozási pontok nélkül):\nB1: ");
             for(int i= 0; i< G_Gact.getHidakszama(); i++) {
                 for(int l = 0; l < G_Gact.getHidakhossza()[i]; l++) {
                     System.out.print(G_Gact.getHidak()[i][l] + " ");
@@ -766,7 +766,7 @@ public class Main {
     // Gact hídjainak megkeresése
 
 
-    // Gact hidak lábainak meghatározása
+    // Gact hidak csatlakozási pontjainak meghatározása
             for(int x=0; x < G_Gact.getHidakszama(); x++) {
                 labak = new int[V];
                 labmeret = 0;
@@ -803,13 +803,13 @@ public class Main {
                     }
                 }
             }
-            System.out.print("-lábai:\nL1: ");
+            System.out.print("-csatlakozási pontjai:\nL1: ");
             for (int m = 0; m < G_Gact.getHidakszama(); m++) {
                 for (int i = 0; i < G_Gact.getHidlabakhossza()[m]; i++)System.out.print(G_Gact.getHidlabak()[m][i] + " ");
                 if(m < G_Gact.getHidakszama()-1)System.out.print("\nL"+(m+2)+": ");
                 else System.out.println();
             }
-    // Gact hidak lábainak meghatározása
+    // Gact hidak csatlakozási pontjainak meghatározása
 
 
     //elfajuló hidak keresése
